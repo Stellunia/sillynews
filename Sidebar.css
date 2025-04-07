@@ -1,0 +1,61 @@
+.burgrr-sidebar {
+
+}
+
+.burgrr {
+    height: 100%;
+    color: white;
+    background-color: #333;
+    text-shadow: 2px 2px 4px #000;
+}
+
+.burgrr:hover {
+    background-color: #777;
+}
+
+.sidebar {
+    background-color: #555;
+    height: 100vh;
+    width: 200px;
+    position: fixed !important;
+    z-index: 1;
+    overflow: auto;
+    border-right: 1px solid #ccc !important;
+}
+
+.sidebar button {
+    width: 100%;
+    display: block;
+    padding: 8px 16px;
+    text-align: left;
+    border: none;
+    white-space: normal;
+    float: none;
+    outline: 0;
+}
+
+.sidebar button:hover {
+    background-color: #777;
+
+}
+
+.sidebar a {
+    text-decoration: none;
+    font-family: 'Lucida Sans Regular', Geneva, Verdana, sans-serif;
+    background-color: #c3b1d1;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 8px 16px;
+    text-shadow: 2px 2px 4px #000;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.sidebar a:hover {
+    background-color: #333;
+}
+
+.sidebar-items {
+
+}

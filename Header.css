@@ -1,0 +1,14 @@
+.headertext {
+    font-size: 48px;
+    color: white;
+    text-align: center;
+    -webkit-text-stroke-color: #111;
+    margin: 0;
+    padding: 1%;
+    font-family: 'Lucida Sans Regular', Geneva, Verdana, sans-serif;
+    text-shadow: 2px 2px 4px #000;
+}
+
+.headerbar {
+    height: 100%;
+}

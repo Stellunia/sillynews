@@ -1,0 +1,97 @@
+@media (min-width: 769px) {
+    .navlist li:last-child {
+        border-left: 6px solid #333;
+    }
+
+    .navlist li:first-child {
+        border-right: 6px solid #333;
+    }
+
+    .navlist {
+        height: 50px;
+    }
+
+    .navigationbar {
+        height: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .news-grid, .sub-articles-grid {
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    
+    .article-column {
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 100%;
+        margin-bottom: auto;
+        justify-content: space-between;
+    }
+    
+    .sub-article-column {
+        flex: 1 0 100%;
+        margin-bottom: 10px;
+    }
+
+    .navigationbar {
+        display: flex;
+        justify-content: space-between;
+        height: max-content;
+        margin-top: 8%;
+        flex-direction: column;
+    }
+
+    .navlist {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: fit-content;
+        width: auto;
+        align-items: center;
+    }
+    
+    .navlist li {
+        height: fit-content;
+        border-top: 4px solid #333;
+        border-bottom: 4px solid #333;
+        border-left: 4px solid #333;
+    }
+
+    .navlist li:first-child {
+        border-left: 4px #333;
+    }
+
+    .navlist li:last-child {
+        float: none;
+        align-self: center;
+        border-right: 4px solid #333;
+        margin-left: 0%;
+    }
+
+    .article-overlay {
+        padding: 0px;
+        height: fit-content;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        color: white;
+        background: linear-gradient(transparent, rgba(0,0,0,0.8));
+        font-family: 'Lucida Sans Regular', Geneva, Verdana, sans-serif;
+        text-align: left;
+        text-wrap: inherit;
+        text-shadow: 2px 2px 4px #000;
+    }
+    
+    .article-image:hover {
+        opacity: 0.6;
+    }
+
+    .footerlist li:first-child {
+        border-right: none;
+        margin-left: 0%;
+        text-decoration: none;
+    }
+}
