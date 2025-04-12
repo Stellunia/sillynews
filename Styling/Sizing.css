@@ -1,4 +1,4 @@
-@media (max-width: 1400px) {
+@media screen and (min-device-width: 1001px) and (max-device-width: 1400px) { 
     .article-overlay {
         padding: 0;
         font-size: 1rem;
@@ -20,6 +20,65 @@
     }
 }
 
+@media (max-width: 1000px) {
+    .article-container {
+        margin-right: 0%;
+    }
+    
+    .right-sidebar {
+        display: none;
+    }
+
+    .sidebar-right {
+        display: flex;
+        flex-direction: column;
+        background-color: #555;
+        height: 100%;
+        width: 100%;
+        position: fixed !important;
+        z-index: 140;
+        overflow: auto;
+        top: 0;
+    }
+
+    .secondary-article {
+        margin: 1%;
+    }
+
+    .sidebar-right button {
+        padding: 16px 32px;
+        font-size: 24px;
+        border-radius: 25px;
+    }
+
+    .burgrr-sidebar-right {
+        position: fixed !important;
+        float: right !important;
+        top: 0; right: 0;
+        z-index: 100;
+    }
+
+    .right-sidebar-articles {
+        padding: 0;
+        margin: 0;
+    }
+
+    .burgrr-right {
+        aspect-ratio: 1/1;
+        color: white;
+        background-color: #333;
+        text-shadow: 2px 2px 4px #000;
+        font-size: 2rem;
+        
+    }
+}
+
+@media (min-device-width: 800px) and (max-device-width: 1000px) {
+    .article-overlay p {
+        display: none;
+    }
+}
+
 @media (min-width: 800px) {
     .navlist li:last-child {
         border-left: 6px solid #333;
@@ -36,6 +95,10 @@
     .navigationbar {
         height: 50px;
     }
+
+    .burgrr-right {
+        display: none;
+    }
 }
 
 @media (max-width: 799px) {
@@ -46,7 +109,6 @@
 
     .burgrr-sidebar {
         z-index: 120;
-        
     }
 
     .burgrr {

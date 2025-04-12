@@ -42,7 +42,6 @@
 
 .sidebar button:hover {
     background-color: #777;
-
 }
 
 .sidebar a {
@@ -60,8 +59,4 @@
 
 .sidebar a:hover {
     background-color: #333;
-}
-
-.right-sidebar-articles {
-    
 }

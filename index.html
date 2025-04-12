@@ -21,6 +21,14 @@
             function sidebar_close() {
               document.getElementById("sillynewsSidebar").style.display = "none";
             }
+
+            function sidebarRight_open() {
+                document.getElementById("sillynewsSidebarRight").style.display = "flex";
+              }
+              
+              function sidebarRight_close() {
+                document.getElementById("sillynewsSidebarRight").style.display = "none";
+              }
             </script>
     </head>
 
@@ -39,6 +47,82 @@
                     <li><a href="about.asp">About</a></li>
                 </ul>
             </nav>
+        </div>
+
+        <!-- Page Content -->
+        <div class="burgrr-sidebar-right">
+            <button class="burgrr-right" onclick="sidebarRight_open()">☰</button>
+        </div>
+        <!-- Sidebar -->
+        <div class="sidebar-right" style="display:none" id="sillynewsSidebarRight">
+            <button onclick="sidebarRight_close()" class="sidebar-items-right">Close &times;</button>
+            <ul class="right-sidebar-articles">
+                <div class="secondary-article">
+                    <div class="subnews-container-article">
+                        <a href="FireSub1a.asp">Person shot with a party-popper, claims they're "feeling kind of silly" since waking up.</a>
+                    </div>
+                </div>
+                <div class="secondary-article">
+                    <div class="subnews-container-article">
+                        <a href="FireSub1b.asp">Cat rescued from tree, claims "That bird was provoking me."</a>
+                    </div>
+                </div>
+                <div class="secondary-article">
+                    <div class="subnews-container-article">
+                        <a href="FireSub1c.asp">Danger in the streets as chickens cross roads en-masse.</a>
+                    </div>
+                </div>
+                <div class="secondary-article">
+                    <div class="subnews-container-article">
+                        <a href="FireSub1d.asp">Many birds complain about existence of planes, says: "Use boats or something, I don't know."</a>
+                    </div>
+                </div>
+                <div class="secondary-article">
+                    <div class="subnews-container-article">
+                        <a href="FireSub1e.asp">A dog gets awarded a medal for fighting against society's greatest foe: The Vacuum Machine.</a>
+                    </div>
+                </div>
+                <div class="secondary-article">
+                    <div class="subnews-container-article">
+                        <a href="FireSub2a.asp">Birds have been joining the protests at Tesla in a way they feel they can express themselves: By shitting on their cars.</a>
+                    </div>
+                </div>
+                <div class="secondary-article">
+                    <div class="subnews-container-article">
+                        <a href="FireSub2b.asp">Hamster claims to have fallen on hard times: "Many days I wish I could just eat it all."</a>
+                    </div>
+                </div>
+                <div class="secondary-article">
+                    <div class="subnews-container-article">
+                        <a href="FireSub2c.asp">Rabbit owners panic as the rabbit has broken its fifth cage yet: "Your house is my house!" they say.</a>
+                    </div>
+                </div>
+                <div class="secondary-article">
+                    <div class="subnews-container-article">
+                        <a href="FireSub2d.asp">War between Hunters and Meese reached a fever pitch: Giant explosion sounded through the mountains this morning with smoke rises from the forest.</a>
+                    </div>
+                </div>
+                <div class="secondary-article">
+                    <div class="subnews-container-article">
+                        <a href="FireSub3a.asp">The state of the world has become so dire that protests are happening at the pearly gates.</a>
+                    </div>
+                </div>
+                <div class="secondary-article">
+                    <div class="subnews-container-article">
+                        <a href="FireSub3b.asp">"Exploring space is a worthless endeavour, come play with us in the ocean!" says Orca.</a>
+                    </div>
+                </div>
+                <div class="secondary-article">
+                    <div class="subnews-container-article">
+                        <a href="FireSub3c.asp">The Devil made a visit to earth, claimed it was "worse than hell" before departing back into the fiery pits.</a>
+                    </div>
+                </div>
+                <div class="secondary-article">
+                    <div class="subnews-container-article">
+                        <a href="FireSub3d.asp">Flies becoming an increasing problem as climate change makes people worried to their stomachs - countries are encouraged to set up more toilets.</a>
+                    </div>
+                </div>
+            </ul>
         </div>
     </header>
 
@@ -154,7 +238,7 @@
                                     <img src="Images\curseofbanana.png" class="article-image" alt="News Image">
                                     <div class="article-overlay">
                                         <h2>Curse of Chiquita</h2>
-                                        <p>People speculate that the Chiquita bananas may come bearing a curse, find out more how to protec yourself.</p>
+                                        <p>People speculate that the Chiquita bananas may come bearing a curse, find out more how to protect yourself.</p>
                                     </div>
                                 </div>
                             </a>
@@ -225,6 +309,8 @@
                         </div>
                     </div>
                 </div>
+
+
             </div>
 
             <div class="right-sidebar">
