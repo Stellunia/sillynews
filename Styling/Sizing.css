@@ -8,6 +8,16 @@
     .article-overlay p {
         display: none;
     }
+
+    .sidebar button {
+        font-size: 24px;
+        padding: 16px 32px;
+    }
+
+    .sidebar a {
+        font-size: 22px;
+        padding: 16px 32px;
+    }
 }
 
 @media (min-width: 800px) {
@@ -35,8 +45,12 @@
     }
 
     .burgrr-sidebar {
+        z-index: 120;
+        
+    }
 
-        z-index: 1;
+    .burgrr {
+        z-index: 100;
     }
 
     .news-grid, .sub-articles-grid {
@@ -116,9 +130,25 @@
         display: none;
     }
 
-    .footerlist li:first-child {
+    .about-footer a {
         border-right: none;
-        margin-left: 0%;
+        margin-right: 5%;
+        float: right;
         text-decoration: none;
+        color: lightgreen;
+        font-size: 1rem;
+    }
+
+    .traditional-contact a {
+        text-decoration: none;
+        color: lightcyan;
+        font-size: 1rem;
+    }
+
+    .new-contact a {
+        text-decoration: none;
+        color: lightblue;
+        font-size: 1rem;
+        margin-right: 3%;
     }
 }
