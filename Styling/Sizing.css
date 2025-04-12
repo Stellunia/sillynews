@@ -1,4 +1,16 @@
-@media (min-width: 769px) {
+@media (max-width: 1400px) {
+    .article-overlay {
+        padding: 0;
+        font-size: 1rem;
+        text-align: center;
+    }
+    
+    .article-overlay p {
+        display: none;
+    }
+}
+
+@media (min-width: 800px) {
     .navlist li:last-child {
         border-left: 6px solid #333;
     }
@@ -16,7 +28,17 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 799px) {
+
+    .sidebar-offset {
+        width: 0%;
+    }
+
+    .burgrr-sidebar {
+
+        z-index: 1;
+    }
+
     .news-grid, .sub-articles-grid {
         flex-wrap: wrap;
         flex-direction: column;
@@ -47,12 +69,13 @@
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        height: fit-content;
+        height: 50px;
         width: auto;
         align-items: center;
     }
     
     .navlist li {
+        display: none;
         height: fit-content;
         border-top: 4px solid #333;
         border-bottom: 4px solid #333;
@@ -87,6 +110,10 @@
     
     .article-image:hover {
         opacity: 0.6;
+    }
+
+    .sub-article-grid {
+        display: none;
     }
 
     .footerlist li:first-child {

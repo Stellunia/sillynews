@@ -1,12 +1,16 @@
-.burgrr-sidebar {
 
+.burgrr-sidebar {
+    position: fixed !important;
+    top: 0;
+    z-index: 100;
 }
 
 .burgrr {
-    height: 100%;
+    aspect-ratio: 1/1;
     color: white;
     background-color: #333;
     text-shadow: 2px 2px 4px #000;
+    font-size: 2rem;
 }
 
 .burgrr:hover {
@@ -14,13 +18,15 @@
 }
 
 .sidebar {
+    flex-direction: column;
     background-color: #555;
     height: 100vh;
     width: 200px;
     position: fixed !important;
-    z-index: 1;
+    z-index: 120;
     overflow: auto;
-    border-right: 1px solid #ccc !important;
+    border-right: 2px solid #ccc !important;
+    top: 0;
 }
 
 .sidebar button {
@@ -56,6 +62,6 @@
     background-color: #333;
 }
 
-.sidebar-items {
-
+.right-sidebar-articles {
+    
 }

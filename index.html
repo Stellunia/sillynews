@@ -4,18 +4,18 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial=scale=1">
         <title>Silly News</title>
-        <link rel="stylesheet" href="Sillynews.css">
-        <link rel="stylesheet" href="Header.css">
-        <link rel="stylesheet" href="Footer.css">
-        <link rel="stylesheet" href="Navigationbar.css">
-        <link rel="stylesheet" href="Articles.css">
-        <link rel="stylesheet" href="Sidebar.css">
-        <link rel="stylesheet" href="Sizing.css">
+        <link rel="stylesheet" href="Styling\Sillynews.css">
+        <link rel="stylesheet" href="Styling\Sidebar.css">
+        <link rel="stylesheet" href="Styling\Header.css">
+        <link rel="stylesheet" href="Styling\Footer.css">
+        <link rel="stylesheet" href="Styling\Navigationbar.css">
+        <link rel="stylesheet" href="Styling\Articles.css">
+        <link rel="stylesheet" href="Styling\Sizing.css">
         <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
         <script src="https://cdn.tailwindcss.com"></script>-->
         <script>
             function sidebar_open() {
-              document.getElementById("sillynewsSidebar").style.display = "block";
+              document.getElementById("sillynewsSidebar").style.display = "flex";
             }
             
             function sidebar_close() {
@@ -24,120 +24,299 @@
             </script>
     </head>
 
-    <body class="background">
+    <header>
         <div class="headsection">
-            <!-- Sidebar -->
-            <div class="sidebar" style="display:none" id="sillynewsSidebar">
-                <button onclick="sidebar_close()" class="sidebar-items">Close &times;</button>
-                <a href="#" class="burgrr-sidebar-button">Home</a>
-                <a href="#" class="burgrr-sidebar-button">Digital</a>
-                <a href="#" class="burgrr-sidebar-button">Political</a>
-                <a href="#" class="burgrr-sidebar-button">Entertainment</a>
-                <a href="#" class="burgrr-sidebar-button">Silly</a>
-            </div>
             <div class="headerbar">
                 <h1 class="headertext">Silly News</h1>
             </div>
             <nav class="navigationbar">
-                    <ul class="navlist">
-                        <!-- Page Content -->
-                        <div class="burgrr-sidebar">
-                            <button class="burgrr" onclick="sidebar_open()">☰</button>
-                            <div class="burgrr-container">
-                            </div>
-                        </div>
-
-                        <li><a href="default.asp">Home</a></li>
-                        <li><a href="DigitalNews.asp">Digital</a></li>
-                        <li><a href="PoliticalNews.asp">Political</a></li>
-                        <li><a href="EntertainmentNews.asp">Entertainment</a></li>
-                        <li><a href="SillyNews.asp">Silly</a></li>
-                        <li><a href="about.asp">About</a></li>
-                    </ul>
+                <ul class="navlist">
+                    <li><a href="default.asp">Home</a></li>
+                    <li><a href="DigitalNews.asp">Digital</a></li>
+                    <li><a href="PoliticalNews.asp">Political</a></li>
+                    <li><a href="EntertainmentNews.asp">Entertainment</a></li>
+                    <li><a href="SillyNews.asp">Silly</a></li>
+                    <li><a href="about.asp">About</a></li>
+                </ul>
             </nav>
         </div>
+    </header>
 
-        <!--<div id="page-wrapper"></div>-->
-        <div class="container">
-            <div class="news-grid">
+    <body class="background">
+        <div class="body-flexbox">
+            <div class="sidebar-offset">
+                <!-- Page Content -->
+                <div class="burgrr-sidebar">
+                    <button class="burgrr" onclick="sidebar_open()">☰</button>
+                </div>
+                <!-- Sidebar -->
+                <div class="sidebar" style="display:none" id="sillynewsSidebar">
+                    <button onclick="sidebar_close()" class="sidebar-items">Close &times;</button>
+                    <a href="default.asp" class="burgrr-sidebar-button">Home</a>
+                    <a href="digitalNews.asp" class="burgrr-sidebar-button">Digital</a>
+                    <a href="politicalNews.asp" class="burgrr-sidebar-button">Political</a>
+                    <a href="entertainmentNews.asp" class="burgrr-sidebar-button">Entertainment</a>
+                    <a href="sillyNews.asp" class="burgrr-sidebar-button">Silly</a>
+                </div>
+            </div>
 
-                <div class="article-column">
-                    <div class="article-container">
-                        <img src="fire.png" class="article-image" alt="News Image">
-                        <div class="article-overlay">
-                            <h2>Fire Warning.</h2>
-                            <p>Fires on the rise within our communities, authorities unsure as to why.</p>
-                        </div>
-                    </div>
-                </div>
-                    
-                <div class="article-column">
-                    <div class="article-container">
-                        <img src="ibuprofen.jpeg" class="article-image" alt="News Image">
-                        <div class="article-overlay">
-                            <h2>Ibuprofen gangs on the rise.</h2>
-                            <p>Ibuprofen gangs are on the loose and have devastated their neighbourhoods due to their crying regarding a "tummy ache".</p>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="article-column">
-                    <div class="article-container">
-                        <img src="cathelo.jpg" class="article-image" alt="News Image">
-                        <div class="article-overlay">
-                            <h2>Cat gets no response.</h2>
-                            <p>A cat tries to get a response from the other side of the screen, but is met with silence.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="article-column">
-                    <div class="article-container">
-                        <a href="Article4.asp">
-                            <img src="wokeleft.png" class="article-image" alt="News Image">
-                            <div class="article-overlay">
-                                <h2>The Woke left</h2>
-                                <p>This poor cat is devastated that the woke left without even saying goodbye.</p>
+            <div class="main-body">
+                <!--<div id="page-wrapper"></div>-->
+                <div class="container">
+                    <div class="news-grid">
+                        <div class="article-column">
+                            <div class="article-container">
+                                <img src="Images\fire.png" class="article-image" alt="News Image">
+                                <div class="article-overlay">
+                                    <h2>Fire Warning</h2>
+                                    <p>Fires on the rise within our communities, authorities unsure as to why.</p>
+                                </div>
                             </div>
                         </div>
-                    </a>
-                </div>
+                        
+                        <div class="article-column">
+                            <div class="article-container">
+                                <img src="Images\ibuprofen.jpeg" class="article-image" alt="News Image">
+                                <div class="article-overlay">
+                                    <h2>Ibuprofen gangs on the rise</h2>
+                                    <p>Ibuprofen gangs are on the loose and have devastated their neighbourhoods due to their crying regarding a "tummy ache".</p>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="article-column">
+                            <div class="article-container">
+                                <img src="Images\cathelo.jpg" class="article-image" alt="News Image">
+                                <div class="article-overlay">
+                                    <h2>Cat gets no response</h2>
+                                    <p>A cat tries to get a response from the other side of the screen, but is met with silence.</p>
+                                </div>
+                            </div>
+                        </div>
 
-                <div class="article-column">
-                    <div class="article-container">
-                        <img src="cursedtowilds.jpg" class="article-image" alt="News Image">
-                        <div class="article-overlay">
-                            <h2>Cat stuck.</h2>
-                            <p>A poor cat was doomed to be stuck inside of this game due to their owner's whims.</p>
+                        <div class="article-column">
+                            <div class="article-container">
+                                <a href="Article4.asp">
+                                    <img src="Images\wokeleft.png" class="article-image" alt="News Image">
+                                    <div class="article-overlay">
+                                        <h2>The Woke left</h2>
+                                        <p>This poor cat is devastated that the woke left without even saying goodbye.</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="article-column">
+                            <div class="article-container">
+                                <img src="Images\cursedtowilds.jpg" class="article-image" alt="News Image">
+                                <div class="article-overlay">
+                                    <h2>Cat stuck</h2>
+                                    <p>A poor cat was doomed to be stuck inside of this game due to their owner's whims.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="news-grid">
+                        <div class="article-column">
+                            <div class="article-container">
+                                <img src="Images\bastacat.jpg" class="article-image" alt="News Image">
+                                <div class="article-overlay">
+                                    <h2>Restaurants to serve new customers</h2>
+                                    <p>Due to the recent influx of new types of individuals, restaurants have added new items to their menu to cater to said individuals.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="article-column">
+                            <div class="article-container">
+                                <img src="Images\camoflauge.jpg" class="article-image" alt="News Image">
+                                <div class="article-overlay">
+                                    <h2>Military to invest in new camouflage</h2>
+                                    <p>Recent battlefields changing causes need for different types of camouflage to be invented and manufactured.</p>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="article-column">
+                            <div class="article-container">
+                                <img src="Images\cozyclaymore.png" class="article-image" alt="News Image">
+                                <div class="article-overlay">
+                                    <h2>Hard times ahead</h2>
+                                    <p>Current times' hardship forces people to make friends with unpredictable items and plushies.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="article-column">
+                            <div class="article-container">
+                                <a href="Article4.asp">
+                                    <img src="Images\curseofbanana.png" class="article-image" alt="News Image">
+                                    <div class="article-overlay">
+                                        <h2>Curse of Chiquita</h2>
+                                        <p>People speculate that the Chiquita bananas may come bearing a curse, find out more how to protec yourself.</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="article-column">
+                            <div class="article-container">
+                                <img src="Images\magicthegathering.jpg" class="article-image" alt="News Image">
+                                <div class="article-overlay">
+                                    <h2>Magic the Gathering</h2>
+                                    <p>Card games are on the rise, amongst them is the afformentioned: Magic The Gathering.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="news-grid">
+                        <div class="article-column">
+                            <div class="article-container">
+                                <img src="Images\donottouch.jpg" class="article-image" alt="News Image">
+                                <div class="article-overlay">
+                                    <h2>Blind person to be jailed over "Do Not Touch" sign</h2>
+                                    <p>Courts concerned over the "touching-fad" that blind people have decided to adopt when traveling.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="article-column">
+                            <div class="article-container">
+                                <img src="Images\brick.jpg" class="article-image" alt="News Image">
+                                <div class="article-overlay">
+                                    <h2>Cats have had enough of things</h2>
+                                    <p>They have decided to take up arms and throw bricks at everything.</p>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="article-column">
+                            <div class="article-container">
+                                <img src="Images\catboxes.jpg" class="article-image" alt="News Image">
+                                <div class="article-overlay">
+                                    <h2>Cats to arrive in boxes alongside large fish</h2>
+                                    <p>Delivery companies have said that their voracious appetite can only grow larger, so they supply a starting feast for the owner's new feline companions.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="article-column">
+                            <div class="article-container">
+                                <a href="Article4.asp">
+                                    <img src="Images\switch2.png" class="article-image" alt="News Image">
+                                    <div class="article-overlay">
+                                        <h2>Nintendo Switch 2 Released</h2>
+                                        <p>People are pondering whether it's actually worth the price, or if it's just better to buy 20 Mareep Plushies.</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="article-column">
+                            <div class="article-container">
+                                <img src="Images\repo.jpg" class="article-image" alt="News Image">
+                                <div class="article-overlay">
+                                    <h2>New game hits the market</h2>
+                                    <p>People goes wild over a new addition to their libraries, cannot get enough of playing R.E.P.O.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div>
-                <div class="sub-article-grid">
-                    <div class="secondary-article"><a href="FireSub1">Fire Subnews 1</a></div>
-                </div>
-                <div class="sub-article-grid">
-                    <div class="secondary-article"><a href="FireSub2">Fire Subnews 2</a></div>
-                </div>
-                <div class="sub-article-grid">
-                    <div class="secondary-article"><a href="FireSub3">Fire Subnews 3</a></div>
-                </div>
-                <div class="sub-article-grid">
-                    <div class="secondary-article"></div>
+            <div class="right-sidebar">
+                <div class="right-sidebar-articles">
+                    <div class="secondary-article">
+                        <div class="subnews-container-article">
+                            <a href="FireSub1a.asp">Person shot with a party-popper, claims they're "feeling kind of silly" since waking up.</a>
+                        </div>
+                    </div>
+                    <div class="secondary-article">
+                        <div class="subnews-container-article">
+                            <a href="FireSub1b.asp">Cat rescued from tree, claims "That bird was provoking me."</a>
+                        </div>
+                    </div>
+                    <div class="secondary-article">
+                        <div class="subnews-container-article">
+                            <a href="FireSub1c.asp">Danger in the streets as chickens cross roads en-masse.</a>
+                        </div>
+                    </div>
+                    <div class="secondary-article">
+                        <div class="subnews-container-article">
+                            <a href="FireSub1d.asp">Many birds complain about existence of planes, says: "Use boats or something, I don't know."</a>
+                        </div>
+                    </div>
+                    <div class="secondary-article">
+                        <div class="subnews-container-article">
+                            <a href="FireSub1e.asp">A dog gets awarded a medal for fighting against society's greatest foe: The Vacuum Machine.</a>
+                        </div>
+                    </div>
+                    <div class="secondary-article">
+                        <div class="subnews-container-article">
+                            <a href="FireSub2a.asp">Birds have been joining the protests at Tesla in a way they feel they can express themselves: By shitting on their cars.</a>
+                        </div>
+                    </div>
+                    <div class="secondary-article">
+                        <div class="subnews-container-article">
+                            <a href="FireSub2b.asp">Hamster claims to have fallen on hard times: "Many days I wish I could just eat it all."</a>
+                        </div>
+                    </div>
+                    <div class="secondary-article">
+                        <div class="subnews-container-article">
+                            <a href="FireSub2c.asp">Rabbit owners panic as the rabbit has broken its fifth cage yet: "Your house is my house!" they say.</a>
+                        </div>
+                    </div>
+                    <div class="secondary-article">
+                        <div class="subnews-container-article">
+                            <a href="FireSub2d.asp">War between Hunters and Meese reached a fever pitch: Giant explosion sounded through the mountains this morning with smoke rises from the forest.</a>
+                        </div>
+                    </div>
+                    <div class="secondary-article">
+                        <div class="subnews-container-article">
+                            <a href="FireSub3a.asp">The state of the world has become so dire that protests are happening at the pearly gates.</a>
+                        </div>
+                    </div>
+                    <div class="secondary-article">
+                        <div class="subnews-container-article">
+                            <a href="FireSub3b.asp">"Exploring space is a worthless endeavour, come play with us in the ocean!" says Orca.</a>
+                        </div>
+                    </div>
+                    <div class="secondary-article">
+                        <div class="subnews-container-article">
+                            <a href="FireSub3c.asp">The Devil made a visit to earth, claimed it was "worse than hell" before departing back into the fiery pits.</a>
+                        </div>
+                    </div>
+                    <div class="secondary-article">
+                        <div class="subnews-container-article">
+                            <a href="FireSub3d.asp">Flies becoming an increasing problem as climate change makes people worried to their stomachs - countries are encouraged to set up more toilets.</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </body>
 
-    <footer>
+    <footer class="footer">
         <div class="footerbar">
             <h1 style="float:left" class="footertext">Trademark or something of Silly News AB</h1>
             <ul class="footerlist">
-                <li>About</li>
-                <li>Contact (Phone): 123-456 78 90</li>
-                <li>Contact (E-mail): mail@mailaddress.com</li>
+                <div class="">
+                    <li class="about-footer"><a href="about.html">About</a></li>
+                </div>
+                <li class="traditional-contact">Contact (Phone): 
+                    <a href="">123-456 78 90</a>
+                </li>
+                <li class="traditional-contact">Contact (E-mail): 
+                    <a href="">mail@mailaddress.com</a>
+                </li>
+                <li class="new-contact">
+                    <a href="https://bsky.app/profile/stellunia.bsky.social">Bluesky</a>
+                    <a href="https://discord.com">Discord</a>
+                    <a href=""></a>
+                </li>
             </ul>
         </div>
     </footer>

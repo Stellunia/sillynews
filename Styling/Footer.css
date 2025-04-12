@@ -1,16 +1,20 @@
 .footerbar {
-    display: block;
-    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.footer {
+    display: flex;
     color: white;
     text-align: center;
     align-items: center;
-    height: -50px;
+    height: 200px;
     text-decoration: none;
     font-family: 'Lucida Sans Regular', Geneva, Verdana, sans-serif;
     font-size: 18px;
     overflow: hidden;
-    background-color: #333;
-    border-top: 4px solid #000;
+    background-color: #222;
+    margin-top: 100px;
 }
 
 .footertext {
@@ -26,7 +30,7 @@
 .footerlist {
     list-style-type: none;
     margin: 1%;
-    padding: 0;
+    padding-left: 0;
     text-align: left;
     width: 100%;
     height: 100%;
@@ -34,8 +38,32 @@
     text-shadow: 2px 2px 4px #000;
 }
 
-.footerlist li:first-child {
+.about-footer a {
     border-right: none;
-    margin-left: 90%;
+    margin-right: 5%;
+    float: right;
     text-decoration: none;
+    color: white;
+    font-size: 2rem;
+}
+
+.about-footer a:first-child:hover {
+    color: #888;
+}
+
+.traditional-contact a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+}
+
+.new-contact a {
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+    margin-right: 3%;
+}
+
+.footerlist li a:hover {
+    color: #888;
 }
