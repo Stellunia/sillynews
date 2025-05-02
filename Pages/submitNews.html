@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial=scale=1">
+        <title>Silly News - Submit Article</title>
+        <link rel="stylesheet" href="..\Styling\Sillynews.css">
+        <link rel="stylesheet" href="..\Styling\Sidebar.css">
+        <link rel="stylesheet" href="..\Styling\Header.css">
+        <link rel="stylesheet" href="..\Styling\Footer.css">
+        <link rel="stylesheet" href="..\Styling\Navigationbar.css">
+        <link rel="stylesheet" href="..\Styling\Sizing.css">
+        <link rel="stylesheet" href="..\Styling\Articles.css">
+        <script src="submitNews.js" defer></script>
+        <script>
+            function sidebar_open() {
+                document.getElementById("sillynewsSidebar").style.display = "flex";
+              }
+              
+              function sidebar_close() {
+                document.getElementById("sillynewsSidebar").style.display = "none";
+              }
+        </script>
+    </head>
+
+    <header>
+        <div class="headsection">
+            <div class="headerbar">
+                <h1 class="headertext">Silly News</h1>
+            </div>
+            <nav class="navigationbar">
+                <ul class="navlist">
+                    <li class="category"><a href="..\index.html">Home</a></li>
+                    <li class="category"><a href="digitalNews.html">Digital</a></li>
+                    <li class="category"><a href="politicalNews.html">Political</a></li>
+                    <li class="category"><a href="entertainmentNews.html">Entertainment</a></li>
+                    <li class="category"><a href="sillyNews.html">Silly</a></li>
+                    <li class="submit"><a href="submitNews.html">Submit an article</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <body class="background">
+        <div class="body-flexbox">
+            <div class="sidebar-offset">
+                <!-- Page Content -->
+                <div class="burgrr-sidebar">
+                    <button class="burgrr" onclick="sidebar_open()">☰</button>
+                </div>
+                <!-- Sidebar -->
+                <div class="sidebar" style="display:none" id="sillynewsSidebar">
+                    <button onclick="sidebar_close()" class="sidebar-items">Close &times;</button>
+                    <a href="default.asp" class="burgrr-sidebar-button">Home</a>
+                    <a href="digitalNews.asp" class="burgrr-sidebar-button">Digital</a>
+                    <a href="politicalNews.asp" class="burgrr-sidebar-button">Political</a>
+                    <a href="entertainmentNews.asp" class="burgrr-sidebar-button">Entertainment</a>
+                    <a href="sillyNews.asp" class="burgrr-sidebar-button">Silly</a>
+                </div>
+            </div>
+
+            <div class="submit-article-area">
+                <!-- Insert the box including the parts: 
+                 Headline: 
+                 Image (Mandatory?): 
+                 Description: 
+                 Contents: 
+                 Author: 
+                 Automatically insert date: 
+                 -->
+            </div>
+        </div>
+    </body>
+
+    <footer class="footer">
+        <div class="footerbar">
+            <h1 style="float:left" class="footertext">Trademark or something of Silly News AB</h1>
+            <ul class="footerlist">
+                <div class="">
+                    <li class="about-footer"><a href="about.html">About</a></li>
+                </div>
+                <li class="traditional-contact">Contact (Phone): 
+                    <a href="">123-456 78 90</a>
+                </li>
+                <li class="traditional-contact">Contact (E-mail): 
+                    <a href="">mail@mailaddress.com</a>
+                </li>
+                <li class="new-contact">
+                    <a href="https://bsky.app/profile/stellunia.bsky.social">Bluesky</a>
+                    <a href="https://discord.com">Discord</a>
+                    <a href=""></a>
+                </li>
+            </ul>
+        </div>
+    </footer>

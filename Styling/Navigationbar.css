@@ -39,17 +39,31 @@
     display: flex;
     align-items: center;
     height: 100%;
+}
+
+.category {
     border-right: 3px solid #333;
 }
 
 .navlist li:first-child {
     border-left: none;
+}
 
+.submit {
+    border-right: none;
+    float: right;
+    border-left: 3px solid #333;
+    margin-left: auto;
+}
+
+.submit a {
+    border-right: none;
+    float: right;
 }
 
 .navlist li:last-child {
     border-right: none;
-    margin-left: auto;
+
 }
 
 .navlist li a {

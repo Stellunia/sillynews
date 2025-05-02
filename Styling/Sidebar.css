@@ -44,6 +44,10 @@
     background-color: #777;
 }
 
+.sidebar button:active {
+    
+}
+
 .sidebar a {
     text-decoration: none;
     font-family: 'Lucida Sans Regular', Geneva, Verdana, sans-serif;

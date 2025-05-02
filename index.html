@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="Styling\Sizing.css">
         <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
         <script src="https://cdn.tailwindcss.com"></script>-->
+        <script src="main.js" defer></script>
         <script>
             function sidebar_open() {
               document.getElementById("sillynewsSidebar").style.display = "flex";
@@ -39,12 +40,13 @@
             </div>
             <nav class="navigationbar">
                 <ul class="navlist">
-                    <li><a href="default.asp">Home</a></li>
-                    <li><a href="DigitalNews.asp">Digital</a></li>
-                    <li><a href="PoliticalNews.asp">Political</a></li>
-                    <li><a href="EntertainmentNews.asp">Entertainment</a></li>
-                    <li><a href="SillyNews.asp">Silly</a></li>
-                    <li><a href="about.asp">About</a></li>
+                    <li class="category"><a href="index.html">Home</a></li>
+                    <li class="category"><a href="Pages/digitalNews.html">Digital</a></li>
+                    <li class="category"><a href="Pages/politicalNews.html">Political</a></li>
+                    <li class="category"><a href="Pages/entertainmentNews.html">Entertainment</a></li>
+                    <li class="category"><a href="Pages/sillyNews.html">Silly</a></li>
+                    <li class="submit"><a href="Pages/submitNews.html">Submit an article</a></li>
+                    <li><a href="Pages/about.html">About</a></li>
                 </ul>
             </nav>
         </div>
@@ -136,7 +138,7 @@
                 <!-- Sidebar -->
                 <div class="sidebar" style="display:none" id="sillynewsSidebar">
                     <button onclick="sidebar_close()" class="sidebar-items">Close &times;</button>
-                    <a href="default.asp" class="burgrr-sidebar-button">Home</a>
+                    <a href="index.html" class="burgrr-sidebar-button">Home</a>
                     <a href="digitalNews.asp" class="burgrr-sidebar-button">Digital</a>
                     <a href="politicalNews.asp" class="burgrr-sidebar-button">Political</a>
                     <a href="entertainmentNews.asp" class="burgrr-sidebar-button">Entertainment</a>
