@@ -2,8 +2,8 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial=scale=1">
         <title>Silly News - Submit Article</title>
+        <link rel="icon" type="image/x-icon" href="/Images/kittyjam.gif">
         <link rel="stylesheet" href="..\Styling\Sillynews.css">
         <link rel="stylesheet" href="..\Styling\Sidebar.css">
         <link rel="stylesheet" href="..\Styling\Header.css">
@@ -11,16 +11,10 @@
         <link rel="stylesheet" href="..\Styling\Navigationbar.css">
         <link rel="stylesheet" href="..\Styling\Sizing.css">
         <link rel="stylesheet" href="..\Styling\Articles.css">
-        <script src="submitNews.js" defer></script>
-        <script>
-            function sidebar_open() {
-                document.getElementById("sillynewsSidebar").style.display = "flex";
-              }
-              
-              function sidebar_close() {
-                document.getElementById("sillynewsSidebar").style.display = "none";
-              }
-        </script>
+        <link rel="stylesheet" href="..\Styling\submitNews.css">
+        <script type="module" src="..\Scripts\main.js"></script>
+        <script type="module" src="..\Scripts\submitNews.js" defer></script>
+
     </head>
 
     <header>
@@ -47,28 +41,50 @@
             <div class="sidebar-offset">
                 <!-- Page Content -->
                 <div class="burgrr-sidebar">
-                    <button class="burgrr" onclick="sidebar_open()">☰</button>
+                    <button class="burgrr" id="burgrr">☰</button>
                 </div>
                 <!-- Sidebar -->
                 <div class="sidebar" style="display:none" id="sillynewsSidebar">
-                    <button onclick="sidebar_close()" class="sidebar-items">Close &times;</button>
-                    <a href="default.asp" class="burgrr-sidebar-button">Home</a>
-                    <a href="digitalNews.asp" class="burgrr-sidebar-button">Digital</a>
-                    <a href="politicalNews.asp" class="burgrr-sidebar-button">Political</a>
-                    <a href="entertainmentNews.asp" class="burgrr-sidebar-button">Entertainment</a>
+                    <button class="sidebar-items" id="sidebar-items">Close &times;</button>
+                    <a href="..\index.html" class="burgrr-sidebar-button">Home</a>
+                    <a href="digitalNews.html" class="burgrr-sidebar-button">Digital</a>
+                    <a href="politicalNews.html" class="burgrr-sidebar-button">Political</a>
+                    <a href="entertainmentNews.html" class="burgrr-sidebar-button">Entertainment</a>
                     <a href="sillyNews.asp" class="burgrr-sidebar-button">Silly</a>
+                    <a href="submitNews.html">Submit article</a>
                 </div>
             </div>
 
             <div class="submit-article-area">
-                <!-- Insert the box including the parts: 
-                 Headline: 
-                 Image (Mandatory?): 
-                 Description: 
-                 Contents: 
-                 Author: 
-                 Automatically insert date: 
-                 -->
+                <form class="submit-article-container" id="submitArticleForm" action="/action_page.php" method="post" enctype="multipart/form-data">
+                    <!-- Article Headline (regular input)-->
+                    <label for="articleNameInput">Insert headline of your article:</label>
+                    <input class="articleName" type="text" id="articleName" name="articleNameInput" placeholder="Article Headline">
+                    
+                    <!-- Image input (upload function?)-->
+                    <input class="articleImage" type="file" accept=".png,.jpg,.jpeg" id="articleImage" name="imagename">
+                    <img id="articleImagePreview" class="articleImagePreview">
+                    
+                    <!-- Article Description (textarea, non-resizeable, max 60 chars)-->
+                    <label for="articleDescription">Insert description of your article:</label>
+                    <textarea class="articleDescription" name="articleDescription" id="articleDescription" maxlength="60" placeholder="Max 60 characters" rows="4"></textarea>
+                    <div class="articleDescriptionCharCounter"><span id="articleDescriptionCounter">0</span>/60 characters</div>
+
+                    <!-- Article Contents (textarea, resizeable)-->
+                    <label for="articleContents">Insert Contents of your article:</label>
+                    <textarea class="articleContents" name="articleContents" id="articleContents" placeholder="Article Contents..." rows="10"></textarea>
+                    
+                    <!-- Author name input (regular input)-->
+                    <label for="articleAuthorName">Insert the article author's name:</label>
+                    <input class="articleAuthor" type="text" id="articleAuthorName" name="articleNameInput" placeholder="Author name">
+                    
+                    <!-- Fetch current date-->
+                     <label for="articleDateDisplay">This article will be submitted with the date: </label>
+                    <div class="articleDateDisplay" id="currentDate"></div>
+                    <input type="hidden" id="submissionDate" name="submissionDate">
+                    
+                    <button type="submit" form="articleForm" value="Submit" class="articleSubmitButton" id="articleSubmitButton">Submit</button>
+                </form>
             </div>
         </div>
     </body>

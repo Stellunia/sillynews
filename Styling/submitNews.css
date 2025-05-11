@@ -1,0 +1,117 @@
+.submit-article-area {
+    display: flex;
+    background-color: var(--background);
+    width: 100%;
+    height: fit-content;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.submit-article-container {
+    display: flex;
+    width: 70%;
+    height: fit-content;
+    background-color: var(--alt-background);
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1rem;
+}
+
+.articleName {
+    width: 40%;
+    align-self:flex-start;
+    margin-left: 10%;
+    border-radius: 1rem;
+}
+
+.submit-article-container label {
+    font-size: large;
+    color: var(--text);
+    align-self: flex-start;
+    margin-left: 10%;
+    margin-top: 1%;
+    text-shadow: 2px 2px 4px var(--text-shading);
+}
+
+.articleImage {
+    margin-top: 1%;
+    color: var(--text);
+    width: 50%;
+    margin-left: 10%;
+    align-self: flex-start;
+    border-radius: 1rem;
+}
+
+.articleImage input {
+    background-color: var(--alt-background);
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.articleImagePreview {
+    max-width: 300px;
+    max-height: 200px;
+    margin-top: 10px;
+    display: none;
+    margin-right: auto;
+    margin-left: 10%;
+}
+
+.articleDescription {
+    width: 40%;
+    margin-left: 10%;
+    align-self: flex-start;
+    resize: none;
+    border-radius: 1rem;
+}
+
+.articleDescriptionCharCounter {
+    color: var(--primary);
+    margin-right: 10%;
+    font-size: 12px;
+    text-align: right;
+    text-shadow: 2px 2px 4px var(--text-shading);
+}
+
+.articleContents {
+    width: 80%;
+    margin-left: 10%;
+    align-self: flex-start;
+    resize: vertical;
+    border-radius: 1rem;
+}
+
+.articleAuthor {
+    width: 40%;
+    margin-left: 10%;
+    align-self: flex-start;
+    border-radius: 1rem;
+}
+
+.articleDateDisplay {
+    margin-left: 10%;
+    font-style: italic;
+    color: var(--primary);
+    margin-bottom: 15px;
+    margin-right: auto;
+}
+
+.articleSubmitButton {
+    margin-top: 5%;
+    width: 6rem;
+    height: 3rem;
+    font-size: large;
+    cursor: pointer;
+    border-radius: 1rem;
+    margin-bottom: 5%;
+    border: none;
+}
+
+.articleSubmitButton:hover {
+    background-color: var(--primary);
+}
+
+.articleSubmitButton:active {
+    background-color: var(--button);
+    color: var(--alt-background);
+}

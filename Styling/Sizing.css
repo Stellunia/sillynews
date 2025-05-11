@@ -65,9 +65,9 @@
 
     .burgrr-right {
         aspect-ratio: 1/1;
-        color: white;
-        background-color: #333;
-        text-shadow: 2px 2px 4px #000;
+        color: var(--text);
+        background-color: var(--background);
+        text-shadow: 2px 2px 4px var(--text-shading);
         font-size: 2rem;
         
     }

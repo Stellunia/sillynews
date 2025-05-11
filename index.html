@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial=scale=1">
         <title>Silly News</title>
+        <link rel="icon" type="image/x-icon" href="/Images/kittyjam.gif">
         <link rel="stylesheet" href="Styling\Sillynews.css">
         <link rel="stylesheet" href="Styling\Sidebar.css">
         <link rel="stylesheet" href="Styling\Header.css">
@@ -13,24 +14,8 @@
         <link rel="stylesheet" href="Styling\Sizing.css">
         <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
         <script src="https://cdn.tailwindcss.com"></script>-->
-        <script src="main.js" defer></script>
-        <script>
-            function sidebar_open() {
-              document.getElementById("sillynewsSidebar").style.display = "flex";
-            }
-            
-            function sidebar_close() {
-              document.getElementById("sillynewsSidebar").style.display = "none";
-            }
-
-            function sidebarRight_open() {
-                document.getElementById("sillynewsSidebarRight").style.display = "flex";
-              }
-              
-              function sidebarRight_close() {
-                document.getElementById("sillynewsSidebarRight").style.display = "none";
-              }
-            </script>
+        <script type="module" src="..\Scripts\main.js"></script>
+        <script type="module" src="..\Scripts\rightSidebar.js"></script>
     </head>
 
     <header>
@@ -53,11 +38,11 @@
 
         <!-- Page Content -->
         <div class="burgrr-sidebar-right">
-            <button class="burgrr-right" onclick="sidebarRight_open()">☰</button>
+            <button class="burgrr-right" id="burgrr-right">☰</button>
         </div>
         <!-- Sidebar -->
         <div class="sidebar-right" style="display:none" id="sillynewsSidebarRight">
-            <button onclick="sidebarRight_close()" class="sidebar-items-right">Close &times;</button>
+            <button id="sidebar-items-right" class="sidebar-items-right">Close &times;</button>
             <ul class="right-sidebar-articles">
                 <div class="secondary-article">
                     <div class="subnews-container-article">
@@ -133,16 +118,17 @@
             <div class="sidebar-offset">
                 <!-- Page Content -->
                 <div class="burgrr-sidebar">
-                    <button class="burgrr" onclick="sidebar_open()">☰</button>
+                    <button class="burgrr" id="burgrr">☰</button>
                 </div>
                 <!-- Sidebar -->
                 <div class="sidebar" style="display:none" id="sillynewsSidebar">
-                    <button onclick="sidebar_close()" class="sidebar-items">Close &times;</button>
-                    <a href="index.html" class="burgrr-sidebar-button">Home</a>
-                    <a href="digitalNews.asp" class="burgrr-sidebar-button">Digital</a>
-                    <a href="politicalNews.asp" class="burgrr-sidebar-button">Political</a>
-                    <a href="entertainmentNews.asp" class="burgrr-sidebar-button">Entertainment</a>
+                    <button id="sidebar-items" class="sidebar-items">Close &times;</button>
+                    <a href="..\index.html" class="burgrr-sidebar-button">Home</a>
+                    <a href="digitalNews.html" class="burgrr-sidebar-button">Digital</a>
+                    <a href="politicalNews.html" class="burgrr-sidebar-button">Political</a>
+                    <a href="entertainmentNews.html" class="burgrr-sidebar-button">Entertainment</a>
                     <a href="sillyNews.asp" class="burgrr-sidebar-button">Silly</a>
+                    <a href="/Pages/submitNews.html">Submit article</a>
                 </div>
             </div>
 

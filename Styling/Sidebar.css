@@ -8,8 +8,8 @@
 .burgrr {
     aspect-ratio: 1/1;
     color: white;
-    background-color: #333;
-    text-shadow: 2px 2px 4px #000;
+    background-color: var(--background);
+    text-shadow: 2px 2px 4px var(--text-shading);
     font-size: 2rem;
 }
 
@@ -25,7 +25,7 @@
     position: fixed !important;
     z-index: 120;
     overflow: auto;
-    border-right: 2px solid #ccc !important;
+    border-right: 2px solid var(--text-shading) !important;
     top: 0;
 }
 
@@ -41,18 +41,18 @@
 }
 
 .sidebar button:hover {
-    background-color: #777;
+    background-color: var(--secondary);
 }
 
 .sidebar button:active {
-    
+    background-color: var(--button-click);
 }
 
 .sidebar a {
     text-decoration: none;
     font-family: 'Lucida Sans Regular', Geneva, Verdana, sans-serif;
-    background-color: #c3b1d1;
-    color: white;
+    background-color: var(--primary);
+    color: var(--text);
     display: flex;
     flex-direction: column;
     padding: 8px 16px;
@@ -62,5 +62,17 @@
 }
 
 .sidebar a:hover {
-    background-color: #333;
+    background-color: var(--secondary);
+}
+
+.sidebar a:active {
+    background-color: var(--button-click);
+}
+
+.sidebar-items {
+    color: var(--text);
+    background-color: var(--secondary);
+    text-shadow: 2px 2px 4px #000;
+    font-weight: bold;
+    font-size: 22px;
 }

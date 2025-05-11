@@ -1,3 +1,17 @@
+:root {
+    --text: #ffffff;
+    --background: #333;
+    --alt-background: #222;
+    --text-shading: #000;
+    --primary: #c3b1d1;
+    --secondary: #66476e;
+    --accent: ;
+    --select-hover: #888;
+    --button: #66476e;
+    --button-hover: rgba(0, 0, 0, 0.15);
+    --button-click: rgba(0, 0, 0, 0.25)
+}
+
 #page-wrapper{
     display: grid;
     grid-template-columns: 1fr;
@@ -12,8 +26,8 @@
 .sidebar-offset {
     width: 3%;
     height: 100%;
-    background-color: #333;
-    border-right: 4px #000;
+    background-color: var(--background);
+    border-right: 4px var(--text-shading);
 }
 
 .main-body {
@@ -43,6 +57,6 @@ body {
 .background {
     display: flex;
     flex-direction: column;
-    background-color: #333;
+    background-color: var(--background);
     height: fit-content;
 }
