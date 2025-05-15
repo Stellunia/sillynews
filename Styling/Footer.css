@@ -67,4 +67,5 @@
 
 .footerlist li a:hover {
     color: var(--select-hover);
+    cursor: pointer;
 }

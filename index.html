@@ -14,7 +14,9 @@
         <link rel="stylesheet" href="Styling\Sizing.css">
         <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
         <script src="https://cdn.tailwindcss.com"></script>-->
-        <script type="module" src="..\Scripts\main.js"></script>
+        <script type="module" src="..\Scripts\main.js" defer></script>
+        <script type="module" src="..\Scripts\articleLayout.js"></script>
+        <script type="module" src="..\Scripts\localStorageSave.js"></script>
         <script type="module" src="..\Scripts\rightSidebar.js"></script>
     </head>
 
@@ -134,7 +136,10 @@
 
             <div class="main-body">
                 <!--<div id="page-wrapper"></div>-->
-                <div class="container">
+                <div class="container" id="news-container">
+                    
+
+
                     <div class="news-grid">
                         <div class="article-column">
                             <div class="article-container">
@@ -378,7 +383,7 @@
             <h1 style="float:left" class="footertext">Trademark or something of Silly News AB</h1>
             <ul class="footerlist">
                 <div class="">
-                    <li class="about-footer"><a href="about.html">About</a></li>
+                    <li class="about-footer" id="about-footer" onclick=""><a>About</a></li>
                 </div>
                 <li class="traditional-contact">Contact (Phone): 
                     <a href="">123-456 78 90</a>

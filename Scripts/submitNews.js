@@ -1,6 +1,11 @@
 console.log("submitNews.js is loaded successfully.");
-    console.log(articleSubmitButton)
+console.log(articleSubmitButton)
 import { Article } from "./articleLayout.js";
+import { createArticleElement } from "./displayArticles.js";
+import { getArticlesFromLocalStorage, saveArticleToLocalStorage } from "./localStorageSave.js"
+
+
+
 
 async function fetchArticle(articleUrl) {
     try {
@@ -10,46 +15,23 @@ async function fetchArticle(articleUrl) {
             return null;
         }
 
-    const article = data.articles[0];
+        const article = data.articles[0];
 
-    return new Article(
-        article.strArticleName,
-        article.strArticleImage,
-        article.strArticleDescription,
-        article.strArticleContents,
-        article.strArticleAuthor,
-        article.strArticleDate,
-    );
+        return new Article(
+            article.strArticleName,
+            article.strArticleImage,
+            article.strArticleDescription,
+            article.strArticleContents,
+            article.strArticleAuthor,
+            article.strArticleDate,
+        );
 
     } catch (error) {
         console.log(error);
     }
 }
 
-function displayArticle(article) {
-    const articleName = document.getElementById("articleName");
-    const articleImage = document.getElementById("articleImage");
-    const articleDescription = document.getElementById("articleDescription");
-    const articleContents = document.getElementById("articleContents");
-    const articleAuthor = document.getElementById("articleAuthorName");
-    const articleDate = document.getElementById("submissionDate");
-
-    articleName.innerText = article.articleName;
-    
-    const img = document.createElement("img");
-    img.setAttribute("src", article.articleImage);
-    articleImage.appendChild(img);
-
-    articleDescription.innerText = article.articleDescription;
-    articleContents.innerText = article.articleContents;
-    articleAuthor.innerText = article.articleAuthor;
-    articleDate.innerText = article.articleDate;
-
-}
-
-//document.getElementById("burgrr").addEventListener("click", sidebar_open);
-
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const now = new Date();
     const formattedDate = now.toLocaleDateString("en-UK", {
         weekday: "long",
@@ -65,11 +47,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const articleDescriptionTextArea = document.getElementById("articleDescription")
     const articleDescriptionCounter = document.getElementById("articleDescriptionCounter");
-    
-    articleDescriptionTextArea.addEventListener("input", function() {
+
+    articleDescriptionTextArea.addEventListener("input", function () {
         const currentLength = this.value.length;
         articleDescriptionCounter.textContent = currentLength;
-    
+
         if (currentLength >= 50) {
             articleDescriptionCounter.style.color = '#ff6600';
         } else {
@@ -81,137 +63,201 @@ document.addEventListener("DOMContentLoaded", function() {
     const imageInput = document.getElementById("articleImage");
     const imagePreview = document.getElementById("articleImagePreview");
 
-    imageInput.addEventListener("change", function() {
-    const file = this.files[0];
-    if (file) {
-        const reader = new FileReader();
+    imageInput.addEventListener("change", function () {
+        const file = this.files[0];
+        console.log(file);
+        if (file) {
+            const reader = new FileReader();
 
-        reader.addEventListener("load", function() {
-            imagePreview.src = this.result;
-            imagePreview.style.display = "block";
-        });
+            reader.addEventListener("load", function () {
+                imagePreview.src = this.result;
+                imagePreview.style.display = "block";
+            });
 
-        reader.readAsDataURL(file);
+            reader.readAsDataURL(file);
         } else {
             imagePreview.style.display = "none";
         }
     });
 });
 
-var articleForm = document.getElementById("submitArticleForm");
 
-function saveArticleData() {
-    localStorage.setItem("articleNameInput", articleNameFetch.value);
-    localStorage.setItem("articleImage", articleImageFetch.value);
-    localStorage.setItem("articleDescription", localStorage.value);
-    localStorage.setItem("articleContents", localStorage.value);
-    localStorage.setItem("articleAuthorName", localStorage.value);
-    localStorage.setItem("submissionDate", localStorage.value);
+function valideFileType() {
+    const inputElement = document.getElementById("articleImage");
+    const files = inputElement.files;
+    if (files.length == 0) {
+        return false;
+    } else {
+        const filename = files[0].name;
+
+        const extension = filename.substr(filename.lastIndexOf("."));
+
+        const allowedExtensionsRegx = /(\.jpg|\.jpeg|\.png)$/i;
+
+        const isAllowed = allowedExtensionsRegx.test(extension);
+
+        if (isAllowed) {
+            alert("Image file detected.")
+        } else {
+            alert("Invalid file type.");
+            return false;
+        }
+    }
 }
 
+const validFileTypes = [
+    "image/jpeg",
+    "image/jpg",
+    "image/png"];
+
+function isValidateFileType(file) {
+    return validFileTypes.includes(file.type);
+}
+
+function resetForm() {
+    const articleForm = document.getElementById("submitArticleForm");
+    articleForm.reset();
+    return false;
+}
 
 window.addEventListener("DOMContentLoaded", () => {
     console.log("the event listener heard a fart");
     let isValid = false;
 
     const articleNameFetch = document.getElementById("articleNameInput");
-    const articleImageFetch = document.getElementById("articleImage").files[0]; // problem child
+    const articleImageFetch = document.getElementById("articleImage"); // problem child
     const articleDescriptionFetch = document.getElementById("articleDescription");
     const articleContentsFetch = document.getElementById("articleContents");
     const articleAuthorFetch = document.getElementById("articleAuthorName");
     //const articleDateFetch = document.getELementById("submissionDate");
 
+    async function getBase64Img(img) {
+        if (!img) {
+            alert("VOMIT");
+            return;
+        }
+        const fr = new FileReader()
+        fr.readAsDataURL(img)
+        return new Promise ((resolve) => {
+                fr.onload = function(e) {
+                resolve(e.target.result);
+            }
+        })
+    }
 
-    if (!articleNameFetch && !articleDescriptionFetch && !articleContentsFetch && !articleAuthorFetch) {
-        console.log("big poopy was spotted, not a fard, red alert");
-        alert("Please fill in all fields.")
-        //isValid = false;
-        return;
-    } /* else { */
+    async function getFormValues() {
+        return {name:articleNameFetch.value,
+            image: await getBase64Img(articleImageFetch.files[0]),
+            description: articleDescriptionFetch.value,
+            contents: articleContentsFetch.value,
+            author: articleAuthorFetch.value,
+            date: Date.now() };
+    }
 
-    const validFileTypes = ["image/jpeg", "image/jpg", "image/png"];
-    if (!validFileTypes.includes(articleImageFetch.type)) { // can't read what's undefined HAH HAHAHAHAHA
+    articleSubmitButton.addEventListener("click", async function (event) {
+        if (!articleNameFetch && !articleDescriptionFetch && !articleContentsFetch && !articleAuthorFetch) {
+            console.log("big poopy was spotted, not a fard, red alert");
+            alert("Please fill in all fields.")
+            //isValid = false;
+            return;
+        } /* else { */
+
+        console.log(articleImageFetch.files[0]);
+        if (!isValidateFileType(articleImageFetch.files[0])) { // can't read what's undefined HAH HAHAHAHAHA
+            console.log(articleImageFetch.files[0]);
             console.log("IMAGE REQUIRED??? WHAT IS THIS, 1984???");
             alert("A valid image is required.");
             //isValid = false;
             return;
-    }
+        }
 
-    const maxSizeInBytes = 5 * 1024 * 1024;
-    if (articleImageFetch.size > maxSizeInBytes) {
+        const maxSizeInBytes = 5 * 1024 * 1024;
+        if (articleImageFetch.size > maxSizeInBytes) {
             console.log("IMAGE SIZE IS TOO BIG HOW ABOUT YOU FIT THESE TIDD-");
             alert("The image is too large, maximum size is 5MB.");
             //isValid = false;  
             return;
-    } else {
-        console.log("the promised land of ACTUAL FUCKING FUNCTIONALITY");
-        isValid = true;
-    }
+        } else {
+            console.log("the promised land of ACTUAL FUCKING FUNCTIONALITY");
+            isValid = true;
+        }
 
 
 
-/*         } else {
-            alert("An error occured trying to upload the image.")
-            //isValid = false;
-        } 
-    }*/
-/*     if (event.key === "Enter") {
-        event.preventDefault();
-        document.getElementById("articleSubmitButton").click();
-    } */
-/*     if (!articleNameFetch) {
-        alert("An article headline is required.");
-        isValid = false;
-    } else {
-        isValid = true;
-    }
+        /*         } else {
+                    alert("An error occured trying to upload the image.")
+                    //isValid = false;
+                } 
+            }*/
+        /*     if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("articleSubmitButton").click();
+            } */
+        /*     if (!articleNameFetch) {
+                alert("An article headline is required.");
+                isValid = false;
+            } else {
+                isValid = true;
+            }
+        
+        
+        
+        
+            if (!articleDescriptionFetch) {
+                alert("An article description is required.");
+                isValid = false;
+            } else {
+                isValid = true;
+            }
+        
+        
+            if (!articleContentsFetch) {
+                alert("The article's content is required.");
+                isValid = false;
+            } else {
+                isValid = true;
+            }
+        
+            // Minimum size limit?
+            // Maximum size limit?
+        
+        
+            if (!articleAuthorFetch || data.articles.articleAuthorFetch === 0) {
+                alert("Who wrote this article, silly?");
+                isValid = false;
+            } else {
+                isValid = true;
+            }
+        
+            if (!articleDateFetch) {
+                alert("An error with the date occured, please try again.")
+                isValid = false;
+            } else {
+                isValid = true;
+            } */
+        console.log("SOMEHOW WE ENDED UP HERE AFTER ALL");
+        const articleSubmitButton = document.getElementById("articleSubmitButton");
 
 
-
-
-    if (!articleDescriptionFetch) {
-        alert("An article description is required.");
-        isValid = false;
-    } else {
-        isValid = true;
-    }
-
-
-    if (!articleContentsFetch) {
-        alert("The article's content is required.");
-        isValid = false;
-    } else {
-        isValid = true;
-    }
-
-    // Minimum size limit?
-    // Maximum size limit?
-
-
-    if (!articleAuthorFetch || data.articles.articleAuthorFetch === 0) {
-        alert("Who wrote this article, silly?");
-        isValid = false;
-    } else {
-        isValid = true;
-    }
-
-    if (!articleDateFetch) {
-        alert("An error with the date occured, please try again.")
-        isValid = false;
-    } else {
-        isValid = true;
-    } */
-    console.log("SOMEHOW WE ENDED UP HERE AFTER ALL");
-    const articleSubmitButton = document.getElementById("articleSubmitButton");
-
-    articleSubmitButton.addEventListener("click", function (event) {
         console.log("SUBMIT BUTTON WORKS YOU DUM BICH")
         if (isValid) {
-            saveArticleData();
+
+            console.log(articleImageFetch.files[0]);
+
+            const { name, image, description, contents, author, date } = await getFormValues();
+            const article = new Article(name, image, description, contents, author, date)
+            console.log(image);
+            console.log(article);
+
+            saveArticleToLocalStorage(article);
+            console.log(saveArticleToLocalStorage);
+            //saveArticleData();
             alert("Submitted article to Silly News, please remain silly.")
             //articleForm.requestFullscreen();
+            const imagePreview = document.getElementById("articleImagePreview");
             imagePreview.style.display = "none";
             //articleDescriptionCounter.textContent = "0";
+            resetForm();
 
         } else if (!isValid) {
             console.log(articleNameFetch.value);
@@ -224,7 +270,7 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     })
 
-    });
+});
 
 
 
@@ -235,14 +281,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 
-//var articleDateFetch = document.date;
+//const articleDateFetch = document.date;
 
 /* function fetchArticle(e) {
-    var articleName = localStorage.getItem();
-    var articleImage = localStorage.getItem();
-    var articleDescription = localStorage.getItem();
-    var articleContents = localStorage.getItem();
-    var articleAuthor = localStorage.getItem();
+    const articleName = localStorage.getItem();
+    const articleImage = localStorage.getItem();
+    const articleDescription = localStorage.getItem();
+    const articleContents = localStorage.getItem();
+    const articleAuthor = localStorage.getItem();
 
     articleNameFetch.value = articleName;
     articleImageFetch.value = articleImage;
@@ -256,11 +302,11 @@ window.addEventListener("DOMContentLoaded", () => {
 }
 
 function getArticleForm(e) {
-    var articleForm = document.getElementById("articleSubmitButton");
+    const articleForm = document.getElementById("articleSubmitButton");
 
     articleForm.style.display = "none";
 
-    var processArticle = document.createElement("span");
+    const processArticle = document.createElement("span");
 
     processArticle.appendChild(document.createTextNode("Processing article.."));
 
