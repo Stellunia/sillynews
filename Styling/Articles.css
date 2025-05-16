@@ -52,6 +52,17 @@
     height: 20px;
     width: 20px;
     z-index: 1;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+}
+
+.article-delete-button:hover {
+    background-color: var(--text);
+}
+
+.article-delete-button:active {
+    background-color: var(--primary);
 }
 
 .article-container:hover {
