@@ -27,13 +27,24 @@ export function getArticlesFromLocalStorage() {
     return parsedArticles;
 }
 
-export function deleteDis(article) {
-    if (!article instanceof Article) {
-        alert("EAT MY ENTIRE library YOU walross")
-        throw new Error("Cannot delete what isn't an article.")
-    }
+/* function checkName(x) {
+    return x = document.getElementById("article-delete-button").articleTitle;
+    console.log(checkName)
+} */
+
+export function deleteDis(id) {
+   
     const currentArticles = getArticlesFromLocalStorage();
-    const elementIndex = currentArticles.findIndex(x => x.articleId === article.articleId);
+    const elementIndex = currentArticles.findIndex(x => (x.articleId === id)/* x.articleId === article.articleId */);
+
+    console.log(elementIndex)
+    console.log(id)
+    if (elementIndex < 0) {
+        alert("Error deleting article.");
+        return;
+    }
     const newArticles = currentArticles.toSpliced(elementIndex,1);
-    localStorage.setItem(articlesKey.JSON.stringify(currentArticles));
+    localStorage.setItem(articlesKey, JSON.stringify(newArticles));
+
+    //const elementName = document.querySelector(articleName)
 }

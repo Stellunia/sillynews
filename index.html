@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial=scale=1">
+        <meta name="viewport" content="width=device-width">
         <title>Silly News</title>
         <link rel="icon" type="image/x-icon" href="/Images/kittyjam.gif">
         <link rel="stylesheet" href="Styling\Sillynews.css">
@@ -17,7 +17,11 @@
         <script type="module" src="..\Scripts\main.js" defer></script>
         <script type="module" src="..\Scripts\articleLayout.js"></script>
         <script type="module" src="..\Scripts\localStorageSave.js"></script>
+        <script type="module" src="..\Scripts\removeArticles.js"></script>
         <script type="module" src="..\Scripts\rightSidebar.js"></script>
+        <script type="module" src="..\Scripts\sidebarFunctionality.js"></script>
+        <script type="module" src="..\Scripts\articleDeleteButton.js" defer></script>
+
     </head>
 
     <header>
@@ -147,6 +151,7 @@
                                 <div class="article-overlay">
                                     <h2>Fire Warning</h2>
                                     <p>Fires on the rise within our communities, authorities unsure as to why.</p>
+                                    <button class="article-delete-button" style="display:none" id="article-delete-button"></button>
                                 </div>
                             </div>
                         </div>
@@ -157,6 +162,7 @@
                                 <div class="article-overlay">
                                     <h2>Ibuprofen gangs on the rise</h2>
                                     <p>Ibuprofen gangs are on the loose and have devastated their neighbourhoods due to their crying regarding a "tummy ache".</p>
+                                    <button class="article-delete-button" style="display:none" id="article-delete-button"></button>
                                 </div>
                             </div>
                         </div>
@@ -167,20 +173,20 @@
                                 <div class="article-overlay">
                                     <h2>Cat gets no response</h2>
                                     <p>A cat tries to get a response from the other side of the screen, but is met with silence.</p>
+                                    <button class="article-delete-button" style="display:none" id="article-delete-button"></button>
                                 </div>
                             </div>
                         </div>
 
                         <div class="article-column">
                             <div class="article-container">
-                                <a href="Article4.asp">
-                                    <img src="Images\wokeleft.png" class="article-image" alt="News Image">
-                                    <div class="article-overlay">
-                                        <h2>The Woke left</h2>
-                                        <p>This poor cat is devastated that the woke left without even saying goodbye.</p>
-                                    </div>
+                                <img src="Images\wokeleft.png" class="article-image" alt="News Image">
+                                <div class="article-overlay">
+                                    <h2>The Woke left</h2>
+                                    <p>This poor cat is devastated that the woke left without even saying goodbye.</p>
+                                    <button class="article-delete-button" style="display:none" id="article-delete-button"></button>
                                 </div>
-                            </a>
+                            </div>
                         </div>
 
                         <div class="article-column">
@@ -189,6 +195,7 @@
                                 <div class="article-overlay">
                                     <h2>Cat stuck</h2>
                                     <p>A poor cat was doomed to be stuck inside of this game due to their owner's whims.</p>
+                                    <button class="article-delete-button" style="display:none" id="article-delete-button"></button>
                                 </div>
                             </div>
                         </div>
@@ -201,6 +208,7 @@
                                 <div class="article-overlay">
                                     <h2>Restaurants to serve new customers</h2>
                                     <p>Due to the recent influx of new types of individuals, restaurants have added new items to their menu to cater to said individuals.</p>
+                                    <button class="article-delete-button" style="display:none" id="article-delete-button"></button>
                                 </div>
                             </div>
                         </div>
@@ -211,6 +219,7 @@
                                 <div class="article-overlay">
                                     <h2>Military to invest in new camouflage</h2>
                                     <p>Recent battlefields changing causes need for different types of camouflage to be invented and manufactured.</p>
+                                    <button class="article-delete-button" style="display:none" id="article-delete-button"></button>
                                 </div>
                             </div>
                         </div>
@@ -221,20 +230,20 @@
                                 <div class="article-overlay">
                                     <h2>Hard times ahead</h2>
                                     <p>Current times' hardship forces people to make friends with unpredictable items and plushies.</p>
+                                    <button class="article-delete-button" style="display:none" id="article-delete-button"></button>
                                 </div>
                             </div>
                         </div>
 
                         <div class="article-column">
                             <div class="article-container">
-                                <a href="Article4.asp">
-                                    <img src="Images\curseofbanana.png" class="article-image" alt="News Image">
-                                    <div class="article-overlay">
-                                        <h2>Curse of Chiquita</h2>
-                                        <p>People speculate that the Chiquita bananas may come bearing a curse, find out more how to protect yourself.</p>
-                                    </div>
+                                <img src="Images\curseofbanana.png" class="article-image" alt="News Image">
+                                <div class="article-overlay">
+                                    <h2>Curse of Chiquita</h2>
+                                    <p>People speculate that the Chiquita bananas may come bearing a curse, find out more how to protect yourself.</p>
+                                    <button class="article-delete-button" style="display:none" id="article-delete-button"></button>
                                 </div>
-                            </a>
+                            </div>
                         </div>
 
                         <div class="article-column">
@@ -243,6 +252,7 @@
                                 <div class="article-overlay">
                                     <h2>Magic the Gathering</h2>
                                     <p>Card games are on the rise, amongst them is the afformentioned: Magic The Gathering.</p>
+                                    <button class="article-delete-button" style="display:none" id="article-delete-button"></button>
                                 </div>
                             </div>
                         </div>
@@ -255,6 +265,7 @@
                                 <div class="article-overlay">
                                     <h2>Blind person to be jailed over "Do Not Touch" sign</h2>
                                     <p>Courts concerned over the "touching-fad" that blind people have decided to adopt when traveling.</p>
+                                    <button class="article-delete-button" style="display:none" id="article-delete-button"></button>
                                 </div>
                             </div>
                         </div>
@@ -265,6 +276,7 @@
                                 <div class="article-overlay">
                                     <h2>Cats have had enough of things</h2>
                                     <p>They have decided to take up arms and throw bricks at everything.</p>
+                                    <button class="article-delete-button" style="display:none" id="article-delete-button"></button>
                                 </div>
                             </div>
                         </div>
@@ -275,20 +287,20 @@
                                 <div class="article-overlay">
                                     <h2>Cats to arrive in boxes alongside large fish</h2>
                                     <p>Delivery companies have said that their voracious appetite can only grow larger, so they supply a starting feast for the owner's new feline companions.</p>
+                                    <button class="article-delete-button" style="display:none" id="article-delete-button"></button>
                                 </div>
                             </div>
                         </div>
 
                         <div class="article-column">
                             <div class="article-container">
-                                <a href="Article4.asp">
-                                    <img src="Images\switch2.png" class="article-image" alt="News Image">
-                                    <div class="article-overlay">
-                                        <h2>Nintendo Switch 2 Released</h2>
-                                        <p>People are pondering whether it's actually worth the price, or if it's just better to buy 20 Mareep Plushies.</p>
-                                    </div>
+                                <img src="Images\switch2.png" class="article-image" alt="News Image">
+                                <div class="article-overlay">
+                                    <h2>Nintendo Switch 2 Released</h2>
+                                    <p>People are pondering whether it's actually worth the price, or if it's just better to buy 20 Mareep Plushies.</p>
+                                    <button class="article-delete-button" style="display:none" id="article-delete-button"></button>                                    
                                 </div>
-                            </a>
+                            </div>
                         </div>
 
                         <div class="article-column">
@@ -297,6 +309,7 @@
                                 <div class="article-overlay">
                                     <h2>New game hits the market</h2>
                                     <p>People goes wild over a new addition to their libraries, cannot get enough of playing R.E.P.O.</p>
+                                    <button class="article-delete-button" style="display:none" id="article-delete-button"></button>
                                 </div>
                             </div>
                         </div>
@@ -383,7 +396,7 @@
             <h1 style="float:left" class="footertext">Trademark or something of Silly News AB</h1>
             <ul class="footerlist">
                 <div class="">
-                    <li class="about-footer" id="about-footer" onclick=""><a>About</a></li>
+                    <li class="about-footer" id="about-footer"><a>About</a></li>
                 </div>
                 <li class="traditional-contact">Contact (Phone): 
                     <a href="">123-456 78 90</a>

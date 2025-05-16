@@ -1,10 +1,10 @@
 export class Article {
-    constructor(articleTitle, articleImage, articleDescription, articleContents, articleAuthor, articleDate) {
+    constructor(articleId, articleTitle, articleImage, articleDescription, articleContents, articleAuthor, articleDate) {
         if (!articleDate instanceof Date) {
-            alert("Date error happened")
-            throw new Error("Date error, cannot create an ID")
+            alert("Error: Something went wrong with the date, try again or something.")
+            throw new Error("Date error, something went awry - articleDate is not an instanceof Date.")
         }
-        this.articleId = articleDate.UTC();
+        this.articleId = articleId;
         this.articleTitle = articleTitle;
         this.articleImage = articleImage;
         this.articleDescription = articleDescription;

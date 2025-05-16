@@ -1,7 +1,6 @@
 console.log("submitNews.js is loaded successfully.");
 console.log(articleSubmitButton)
 import { Article } from "./articleLayout.js";
-import { createArticleElement } from "./displayArticles.js";
 import { getArticlesFromLocalStorage, saveArticleToLocalStorage } from "./localStorageSave.js"
 
 
@@ -39,7 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
         month: "long",
         day: "numeric",
         hour: "numeric",
-        minute: "numeric"
+        minute: "numeric",
+        second: "numeric"
     });
 
     document.getElementById("currentDate").textContent = formattedDate;
@@ -121,7 +121,7 @@ function resetForm() {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-    console.log("the event listener heard a fart");
+    console.log("The event listened heard its call when the site was loaded.");
     let isValid = false;
 
     const articleNameFetch = document.getElementById("articleNameInput");
@@ -133,7 +133,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     async function getBase64Img(img) {
         if (!img) {
-            alert("VOMIT");
+            alert("this isn't an image at all, I've been lied to >:(");
             return;
         }
         const fr = new FileReader()
@@ -144,20 +144,22 @@ window.addEventListener("DOMContentLoaded", () => {
             }
         })
     }
-
+        const DateOfArticleToId = Date.now();
+        //this.articleId = DateOfArticleToId;
     async function getFormValues() {
-        return {name:articleNameFetch.value,
+        return {artId: Date.now(), 
+            name:articleNameFetch.value,
             image: await getBase64Img(articleImageFetch.files[0]),
             description: articleDescriptionFetch.value,
             contents: articleContentsFetch.value,
             author: articleAuthorFetch.value,
-            date: Date.now() };
+            date: Date.now()};
     }
 
     articleSubmitButton.addEventListener("click", async function (event) {
-        if (!articleNameFetch && !articleDescriptionFetch && !articleContentsFetch && !articleAuthorFetch) {
-            console.log("big poopy was spotted, not a fard, red alert");
-            alert("Please fill in all fields.")
+        if (!articleNameFetch || !articleDescriptionFetch || !articleContentsFetch || !articleAuthorFetch) {
+            console.log("Missing information - please fill in the form.");
+            alert("Please fill in all fields of the form.")
             //isValid = false;
             return;
         } /* else { */
@@ -165,7 +167,7 @@ window.addEventListener("DOMContentLoaded", () => {
         console.log(articleImageFetch.files[0]);
         if (!isValidateFileType(articleImageFetch.files[0])) { // can't read what's undefined HAH HAHAHAHAHA
             console.log(articleImageFetch.files[0]);
-            console.log("IMAGE REQUIRED??? WHAT IS THIS, 1984???");
+            console.log("No image found, please attach a valid image.");
             alert("A valid image is required.");
             //isValid = false;
             return;
@@ -173,12 +175,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
         const maxSizeInBytes = 5 * 1024 * 1024;
         if (articleImageFetch.size > maxSizeInBytes) {
-            console.log("IMAGE SIZE IS TOO BIG HOW ABOUT YOU FIT THESE TIDD-");
+            console.log("Image size is too big, please use a file smaller than 5MB.");
             alert("The image is too large, maximum size is 5MB.");
             //isValid = false;  
             return;
         } else {
-            console.log("the promised land of ACTUAL FUCKING FUNCTIONALITY");
+            console.log("isValid returns true, article submission is proceeding.");
             isValid = true;
         }
 
@@ -235,19 +237,21 @@ window.addEventListener("DOMContentLoaded", () => {
             } else {
                 isValid = true;
             } */
-        console.log("SOMEHOW WE ENDED UP HERE AFTER ALL");
+        console.log("Passed checks to allow attempt at submitting article.");
         const articleSubmitButton = document.getElementById("articleSubmitButton");
 
 
-        console.log("SUBMIT BUTTON WORKS YOU DUM BICH")
+        console.log("Submit button call heard, all is functional.")
         if (isValid) {
 
             console.log(articleImageFetch.files[0]);
 
-            const { name, image, description, contents, author, date } = await getFormValues();
-            const article = new Article(name, image, description, contents, author, date)
+            const {  artId,  name, image, description, contents, author, date } = await getFormValues();
+            const article = new Article( artId,  name, image, description, contents, author, date)
             console.log(image);
             console.log(article);
+            console.log(date);
+            console.log(artId);
 
             saveArticleToLocalStorage(article);
             console.log(saveArticleToLocalStorage);

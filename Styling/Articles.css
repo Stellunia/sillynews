@@ -45,6 +45,15 @@
     font-family: 'Lucida Sans Regular', Geneva, Verdana, sans-serif;
 }
 
+.article-delete-button {
+    margin-bottom: auto;
+    float: right;
+    background-color: var(--secondary);
+    height: 20px;
+    width: 20px;
+    z-index: 1;
+}
+
 .article-container:hover {
     background-color: rgba(0, 0, 0, 0.1);
     color: black;
